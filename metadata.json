@@ -1,0 +1,7 @@
+{
+  "name": "Copy of FitBuilder Pro",
+  "description": "Uma plataforma com IA para gerar planos de treino e dieta personalizados, analisar refeições com um scanner de alimentos e acompanhar seu progresso em direção aos seus objetivos de saúde.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

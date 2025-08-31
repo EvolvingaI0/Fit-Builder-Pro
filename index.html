@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitBuilder Pro</title>
+
+    <!-- PWA & Mobile App Tags -->
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#6d28d9" />
+    <link rel="apple-touch-icon" href="/logo.svg">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="FitBuilder Pro">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Poppins', 'sans-serif'],
+            },
+            colors: {
+              'primary': '#6d28d9', // Violet 700
+              'primary-focus': '#5b21b6', // Violet 800
+              'primary-content': '#ffffff',
+              'secondary': '#c4b5fd', // Violet 300
+              'secondary-focus': '#a78bfa', // Violet 400
+              'secondary-content': '#4c1d95', // Violet 900
+              'background': '#f7f8fa', // Custom light gray
+              'surface': '#ffffff', // White
+              'text-primary': '#1f2937', // Gray 800
+              'text-secondary': '#6b7280', // Gray 500
+              'border': '#e5e7eb', // Gray 200
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0px)' },
+              },
+              'fade-in-scroll': {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              'slide-in-up': {
+                '0%': { transform: 'translateY(100%)' },
+                '100%': { transform: 'translateY(0)' },
+              },
+              progress: {
+                '0%': { width: '0%' },
+                '100%': { width: '100%' },
+              },
+              scaleIn: {
+                '0%': { opacity: '0', transform: 'scale(0.95)' },
+                '100%': { opacity: '1', transform: 'scale(1)' },
+              },
+              slideIn: {
+                '0%': { transform: 'translateX(-100%)' },
+                '100%': { transform: 'translateX(0)' },
+              },
+              slideOut: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-100%)' },
+              },
+              backdropIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              backdropOut: {
+                '0%': { opacity: '1' },
+                '100%': { opacity: '0' },
+              },
+              scanAnimation: {
+                '0%': { top: '-100%' },
+                '100%': { top: '100%' },
+              },
+              pulse: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '0.5' },
+              },
+              countup: {
+                '0%': { opacity: '0', transform: 'translateY(15px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            },
+            animation: {
+              fadeIn: 'fadeIn 0.5s ease-in-out',
+              'fade-in-scroll': 'fade-in-scroll 0.8s ease-out forwards',
+              'slide-in-up': 'slide-in-up 0.5s ease-out forwards',
+              scaleIn: 'scaleIn 0.3s ease-in-out',
+              progress: 'progress 1.5s ease-in-out forwards',
+              slideIn: 'slideIn 0.3s ease-out forwards',
+              slideOut: 'slideOut 0.3s ease-out forwards',
+              backdropIn: 'backdropIn 0.3s ease-out forwards',
+              backdropOut: 'backdropOut 0.3s ease-out forwards',
+              scan: 'scanAnimation 2s ease-in-out infinite',
+              pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              countup: 'countup 0.5s ease-out forwards',
+            },
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.15.0",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@^2.2.0/",
+    "recharts": "https://esm.sh/recharts@^3.1.2",
+    "dotenv/": "https://aistudiocdn.com/dotenv@^17.2.1/",
+    "expo/": "https://aistudiocdn.com/expo@^53.0.20/",
+    "react-native-gesture-handler": "https://aistudiocdn.com/react-native-gesture-handler@^2.28.0",
+    "expo-status-bar": "https://aistudiocdn.com/expo-status-bar@^2.2.3",
+    "react-native": "https://aistudiocdn.com/react-native@^0.81.0",
+    "@expo/vector-icons": "https://aistudiocdn.com/@expo/vector-icons@^15.0.0",
+    "@supabase/supabase-js": "https://aistudiocdn.com/@supabase/supabase-js@^2.56.0",
+    "@react-native-async-storage/async-storage": "https://aistudiocdn.com/@react-native-async-storage/async-storage@^2.2.0",
+    "express": "https://aistudiocdn.com/express@^5.1.0",
+    "cors": "https://aistudiocdn.com/cors@^2.8.5",
+    "multer": "https://aistudiocdn.com/multer@^2.0.2",
+    "expo-router": "https://aistudiocdn.com/expo-router@^5.1.4",
+    "expo-constants": "https://aistudiocdn.com/expo-constants@^17.1.7",
+    "expo-image-picker": "https://aistudiocdn.com/expo-image-picker@^16.1.4",
+    "react-native-url-polyfill/": "https://aistudiocdn.com/react-native-url-polyfill@^2.0.0/"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-text-primary font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
